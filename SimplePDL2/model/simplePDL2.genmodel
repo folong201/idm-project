@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/SimplePDL2/src-gen" creationIcons="false" editDirectory="/SimplePDL2.edit/src-gen"
+    editorDirectory="/SimplePDL2.editor/src-gen" modelPluginID="SimplePDL2" modelName="SimplePDL2"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>simplePDL2.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="SimplePDL2" disposableProviderFactory="true" ecorePackage="simplePDL2.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="simplePDL2.ecore#//WorkSequenceType">
+      <genEnumLiterals ecoreEnumLiteral="simplePDL2.ecore#//WorkSequenceType/startToStart"/>
+      <genEnumLiterals ecoreEnumLiteral="simplePDL2.ecore#//WorkSequenceType/finishToStart"/>
+      <genEnumLiterals ecoreEnumLiteral="simplePDL2.ecore#//WorkSequenceType/startToFinish"/>
+      <genEnumLiterals ecoreEnumLiteral="simplePDL2.ecore#//WorkSequenceType/finishToFinish"/>
+    </genEnums>
+    <genClasses ecoreClass="simplePDL2.ecore#//Process">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplePDL2.ecore#//Process/newabstractclass2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplePDL2.ecore#//Process/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="simplePDL2.ecore#//ProcesseElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplePDL2.ecore#//ProcesseElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplePDL2.ecore#//ProcesseElement/description"/>
+    </genClasses>
+    <genClasses ecoreClass="simplePDL2.ecore#//WorkDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplePDL2.ecore#//WorkDefinition/hr"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplePDL2.ecore#//WorkDefinition/linksToSuccessor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplePDL2.ecore#//WorkDefinition/linksToPredecessor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplePDL2.ecore#//WorkDefinition/mr"/>
+    </genClasses>
+    <genClasses ecoreClass="simplePDL2.ecore#//WorkSequence">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplePDL2.ecore#//WorkSequence/linkType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplePDL2.ecore#//WorkSequence/predecessor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplePDL2.ecore#//WorkSequence/successor"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

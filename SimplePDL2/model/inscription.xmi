@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplePDL2:Process
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:simplePDL2="http://www.example.org/simplePDL2"
+    xsi:schemaLocation="http://www.example.org/simplePDL2 simplePDL2.ecore"
+    name="inscription">
+  <newabstractclass2
+      xsi:type="simplePDL2:WorkDefinition"
+      name="certifDocument"
+      description="descrption"
+      hr="1"
+      linksToSuccessor="//@newabstractclass2.4"
+      mr="1"/>
+  <newabstractclass2
+      xsi:type="simplePDL2:WorkDefinition"
+      name="prepareletter"
+      hr="1"
+      linksToSuccessor="//@newabstractclass2.5 //@newabstractclass2.6"
+      mr="1"/>
+  <newabstractclass2
+      xsi:type="simplePDL2:WorkDefinition"
+      name="payment"
+      hr="1"
+      linksToSuccessor="//@newabstractclass2.7"
+      mr="1"/>
+  <newabstractclass2
+      xsi:type="simplePDL2:WorkDefinition"
+      name="depotDossier"
+      description="inscription"
+      hr="1"
+      linksToSuccessor="//@newabstractclass2.8"
+      mr="1"/>
+  <newabstractclass2
+      xsi:type="simplePDL2:WorkSequence"
+      name="verification"
+      description="verification"
+      linkType="finishToStart"
+      predecessor="//@newabstractclass2.0"/>
+  <newabstractclass2
+      xsi:type="simplePDL2:WorkSequence"
+      name="signateletter"
+      predecessor="//@newabstractclass2.1"/>
+  <newabstractclass2
+      xsi:type="simplePDL2:WorkSequence"
+      name="printdocument"
+      predecessor="//@newabstractclass2.1"/>
+  <newabstractclass2
+      xsi:type="simplePDL2:WorkSequence"
+      name="depotphysique"
+      predecessor="//@newabstractclass2.2"/>
+  <newabstractclass2
+      xsi:type="simplePDL2:WorkSequence"
+      name="attendreliste"
+      predecessor="//@newabstractclass2.3"/>
+</simplePDL2:Process>

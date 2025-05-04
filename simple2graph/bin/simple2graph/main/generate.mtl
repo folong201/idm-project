@@ -1,0 +1,32 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module generate.
+ */]
+[module generate('http://www.example.org/simplePDL2')]
+
+
+[**
+ * The documentation of the template generateElement.
+ * @param aProcess
+ */]
+[template public generateElement(aProcess : Process)]
+[comment @main/]
+[file (aProcess.name + '.dot', false, 'UTF-8')]
+digraph [aProcess.name.toUpper()/] {
+    // Configuration globale du graphe
+    rankdir=LR;
+    node ['['/]shape=box, style="rounded,filled", fillcolor="#e6f3ff"];
+
+    // Déclaration des nœuds (WorkDefinitions)
+    [for (wd : WorkDefinition | aProcess.newabstractclass2->select(oclIsKindOf(WorkDefinition)))]
+        "[wd.name/]" ['['/]label="[wd.name/]\n(HR: [wd.hr/], MR:['['/]wd.mr/)"];
+    [/for]
+
+    // Déclaration des liens (WorkSequences)
+    [for (ws : WorkSequence | aProcess.newabstractclass2->select(oclIsKindOf(WorkSequence)))]
+        "[ws.predecessor.name/]" -> "[ws.successor.name/]" 
+        ['['/]label="[ws.linkType.toString()/]", fontsize=10];
+    [/for]
+}
+[/file]
+[/template]

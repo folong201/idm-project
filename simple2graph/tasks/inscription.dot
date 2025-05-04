@@ -1,0 +1,23 @@
+digraph INSCRIPTION {
+    // Configuration globale du graphe
+    rankdir=LR;
+    node [shape=box, style="rounded,filled", fillcolor="#e6f3ff"];
+
+    // Déclaration des nœuds (WorkDefinitions)
+        "certifDocument" [label="certifDocument\n(HR: 1, MR:[wd.mr/)"];
+        "prepareletter" [label="prepareletter\n(HR: 1, MR:[wd.mr/)"];
+        "payment" [label="payment\n(HR: 1, MR:[wd.mr/)"];
+        "depotDossier" [label="depotDossier\n(HR: 1, MR:[wd.mr/)"];
+
+    // Déclaration des liens (WorkSequences)
+        "certifDocument" -> "" 
+        [label="finishToStart", fontsize=10];
+        "prepareletter" -> "" 
+        [label="startToStart", fontsize=10];
+        "prepareletter" -> "" 
+        [label="startToStart", fontsize=10];
+        "payment" -> "" 
+        [label="startToStart", fontsize=10];
+        "depotDossier" -> "" 
+        [label="startToStart", fontsize=10];
+}

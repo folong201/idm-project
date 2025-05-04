@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" name="project" version="12.0.0.2017041100">
+  <ownedViewpoints name="MyViewpoint">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" enablePopupBars="true">
+      <defaultLayer name="Default"/>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="my.project.design.Services"/>
+  </ownedViewpoints>
+  <ownedViewpoints name="simplePDLV2" label="simplePDLV2" modelFileExtension="simplepdlv2">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ProcessDiagram" domainClass="simplePDLV2.Process" rootExpression="aql:self" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="WorkDefinitionNode" semanticCandidatesExpression="aql:self.processElements" domainClass="simplePDLV2.WorkDefinition"/>
+        <nodeMappings name="WorkSequenceNode" semanticCandidatesExpression="aql:self.processElements" domainClass="simplePDLV2.WorkSequence"/>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

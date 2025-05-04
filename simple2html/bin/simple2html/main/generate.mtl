@@ -1,0 +1,69 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module generate.
+ */]
+[module generate('http://www.example.org/simplePDL2')]
+
+
+[**
+ * The documentation of the template generateElement.
+ * @param aProcess
+ */]
+[template public generateElement(aProcess : Process)]
+[comment @main/]
+[file (aProcess.name + '.html', false, 'UTF-8')]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Process: [aProcess.name/]</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #2c3e50; }
+        h2 { color: #3498db; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin-bottom: 10px; padding: 10px; background: #f9f9f9; border-radius: 4px; }
+        .workdef { border-left: 4px solid #e74c3c; padding-left: 10px; }
+        .workseq { border-left: 4px solid #2ecc71; padding-left: 10px; }
+        .resource { font-style: italic; color: #7f8c8d; }
+    </style>
+</head>
+<body>
+    <h1>Process: [aProcess.name/]</h1>
+
+
+
+    <!-- Section WorkDefinitions -->
+    <h2>Tasks (WorkDefinitions)</h2>
+  <ul>
+        [for (wd : WorkDefinition | aProcess.newabstractclass2->select(oclIsKindOf(WorkDefinition)))]
+            <li class="workdef">
+                <strong>[wd.name/]</strong><br/>
+                [if (wd.description <> null)]<em>[wd.description/]</em><br/>[/if]
+                <span class="resource">Human Resources: [wd.hr/] | Material Resources: [wd.mr/]</span><br/>
+                [if (wd.linksToSuccessor->notEmpty())]
+                    <strong>Successors:</strong>
+                    <ul>
+                        [for (ws : WorkSequence | wd.linksToSuccessor)]
+                            <li>[ws.successor.name/] (Type: [ws.linkType.toString()/])</li>
+                        [/for]
+                    </ul>
+                [/if]
+            </li>
+        [/for]
+    </ul>
+
+    <!-- Section WorkSequences -->
+    <h2>Dependencies (WorkSequences)</h2>
+    <ul>
+        [for (ws : WorkSequence | aProcess.newabstractclass2->select(oclIsKindOf(WorkSequence)))]
+            <li class="workseq">
+                <strong>[ws.predecessor.name/] → [ws.successor.name/]</strong><br/>
+                <span>Type: [ws.linkType.toString()/]</span><br/>
+                [if (ws.description <> null)]<em>[ws.description/]</em>[/if]
+            </li>
+        [/for]
+    </ul>
+</body>
+</html>
+[/file]
+[/template]

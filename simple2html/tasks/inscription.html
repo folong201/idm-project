@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Process: inscription</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #2c3e50; }
+        h2 { color: #3498db; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin-bottom: 10px; padding: 10px; background: #f9f9f9; border-radius: 4px; }
+        .workdef { border-left: 4px solid #e74c3c; padding-left: 10px; }
+        .workseq { border-left: 4px solid #2ecc71; padding-left: 10px; }
+        .resource { font-style: italic; color: #7f8c8d; }
+    </style>
+</head>
+<body>
+    <h1>Process: inscription</h1>
+
+
+
+    <!-- Section WorkDefinitions -->
+    <h2>Tasks (WorkDefinitions)</h2>
+  <ul>
+            <li class="workdef">
+                <strong>certifDocument</strong><br/>
+                <em>descrption</em><br/>
+                <span class="resource">Human Resources: 1 | Material Resources: 1</span><br/>
+                    <strong>Successors:</strong>
+                    <ul>
+                            <li> (Type: finishToStart)</li>
+                    </ul>
+            </li>
+            <li class="workdef">
+                <strong>prepareletter</strong><br/>
+                
+                <span class="resource">Human Resources: 1 | Material Resources: 1</span><br/>
+                    <strong>Successors:</strong>
+                    <ul>
+                            <li> (Type: startToStart)</li>
+                            <li> (Type: startToStart)</li>
+                    </ul>
+            </li>
+            <li class="workdef">
+                <strong>payment</strong><br/>
+                
+                <span class="resource">Human Resources: 1 | Material Resources: 1</span><br/>
+                    <strong>Successors:</strong>
+                    <ul>
+                            <li> (Type: startToStart)</li>
+                    </ul>
+            </li>
+            <li class="workdef">
+                <strong>depotDossier</strong><br/>
+                <em>inscription</em><br/>
+                <span class="resource">Human Resources: 1 | Material Resources: 1</span><br/>
+                    <strong>Successors:</strong>
+                    <ul>
+                            <li> (Type: startToStart)</li>
+                    </ul>
+            </li>
+    </ul>
+
+    <!-- Section WorkSequences -->
+    <h2>Dependencies (WorkSequences)</h2>
+    <ul>
+            <li class="workseq">
+                <strong>certifDocument → </strong><br/>
+                <span>Type: finishToStart</span><br/>
+                <em>verification</em>
+            </li>
+            <li class="workseq">
+                <strong>prepareletter → </strong><br/>
+                <span>Type: startToStart</span><br/>
+                
+            </li>
+            <li class="workseq">
+                <strong>prepareletter → </strong><br/>
+                <span>Type: startToStart</span><br/>
+                
+            </li>
+            <li class="workseq">
+                <strong>payment → </strong><br/>
+                <span>Type: startToStart</span><br/>
+                
+            </li>
+            <li class="workseq">
+                <strong>depotDossier → </strong><br/>
+                <span>Type: startToStart</span><br/>
+                
+            </li>
+    </ul>
+</body>
+</html>
